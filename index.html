@@ -172,7 +172,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
+        <h2 id="PAT-AVL树模板"><a href="#PAT-AVL树模板" class="headerlink" title="PAT AVL树模板"></a>PAT AVL树模板</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span>    <span class="comment">//AVL树要记录树高，以便得到节点的平衡因子</span></span><br><span class="line">    <span class="keyword">int</span> val, <span class="built_in">height</span>;</span><br><span class="line">    node *left, *right;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function">node * <span class="title">newNode</span><span class="params">(<span class="keyword">int</span> val)</span></span>&#123; <span class="comment">//申请新节点</span></span><br><span class="line">    node * root = <span class="keyword">new</span> node;</span><br><span class="line">    root-&gt;<span class="built_in">height</span> = <span class="number">1</span>;</span><br><span class="line">    root-&gt;val = val;</span><br><span class="line">    root-&gt;left = root-&gt;right = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getHeight</span><span class="params">(node * root)</span></span>&#123; <span class="comment">//得到节点的高度</span></span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> root-&gt;<span class="built_in">height</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">updateHeight</span><span class="params">(node * root)</span></span>&#123; <span class="comment">//更新节点的高度</span></span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span>;</span><br><span class="line">    root-&gt;<span class="built_in">height</span> = <span class="built_in">max</span>(getHeight(root-&gt;left), getHeight(root-&gt;right)) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BalanceFactor</span><span class="params">(node * root)</span></span>&#123; <span class="comment">//得到平衡因子</span></span><br><span class="line">    <span class="keyword">return</span> getHeight(root-&gt;left) - getHeight(root-&gt;right);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">L</span><span class="params">(node* &amp;root)</span></span>&#123; <span class="comment">//左旋</span></span><br><span class="line">    node * temp = root-&gt;right;</span><br><span class="line">    root-&gt;right = temp-&gt;left;</span><br><span class="line">    temp-&gt;left = root;</span><br><span class="line">    updateHeight(root);</span><br><span class="line">    updateHeight(temp);</span><br><span class="line">    root = temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">R</span><span class="params">(node* &amp;root)</span></span>&#123; <span class="comment">//右旋</span></span><br><span class="line">    node * temp = root-&gt;left;</span><br><span class="line">    root-&gt;left = temp-&gt;right;</span><br><span class="line">    temp-&gt;right = root;</span><br><span class="line">    updateHeight(root);</span><br><span class="line">    updateHeight(temp);</span><br><span class="line">    root = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="AVL树的选择规则"><a href="#AVL树的选择规则" class="headerlink" title="AVL树的选择规则"></a>AVL树的选择规则</h5><table>
+<thead>
+<tr>
+<th>树型</th>
+<th>判定条件</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LL</td>
+<td>BF(root) = 2, BF(root-&gt;left) = 1</td>
+<td>R(root)</td>
+</tr>
+<tr>
+<td>LR</td>
+<td>BF(root) = 2, BF(root-&gt;left) = -1</td>
+<td>L(root-&gt;left), R(root)</td>
+</tr>
+<tr>
+<td>RR</td>
+<td>BF(root) = -2, BF(root-&gt;right) = -1</td>
+<td>L(root)</td>
+</tr>
+<tr>
+<td>RLL</td>
+<td>BF(root) = -2, BF(root-&gt;right) = 1</td>
+<td>R(root-&gt;right), L(root)</td>
+</tr>
+</tbody></table>
 <hr>
 <h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
 <hr>
