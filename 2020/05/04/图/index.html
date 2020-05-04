@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title> PAT笔记 | Hexo</title>
+  <title>图 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="树树的基本算法： 遍历算法：前序，中序，后序，层序遍历； 建树算法：中序后序建树，中序前序建树算法，平衡二叉树的建立等 PAT AVL树模板1234567891011121314151617181920212223242526272829303132333435363738struct node &amp;#123;    &#x2F;&#x2F;AVL树要记录树高，以便得到节点的平衡因子    int val, heigh">
+  <meta name="description" content="图dijkstra算法123456789101112131415161718192021222324252627void dijkstra(int root)&amp;#123;    fill(d, d + MAXN, INF);&#x2F;&#x2F;d[]初试化    d[root] &#x3D; 0; &#x2F;&#x2F;原点距离为0    for (int i &#x3D; 0; i !&#x3D; n; ++i)&amp;#123;        int u &#x3D; -">
 <meta property="og:type" content="article">
-<meta property="og:title" content=" PAT笔记">
-<meta property="og:url" content="http://yoursite.com/2020/05/01/PAT%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="图">
+<meta property="og:url" content="http://yoursite.com/2020/05/04/%E5%9B%BE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="树树的基本算法： 遍历算法：前序，中序，后序，层序遍历； 建树算法：中序后序建树，中序前序建树算法，平衡二叉树的建立等 PAT AVL树模板1234567891011121314151617181920212223242526272829303132333435363738struct node &amp;#123;    &#x2F;&#x2F;AVL树要记录树高，以便得到节点的平衡因子    int val, heigh">
+<meta property="og:description" content="图dijkstra算法123456789101112131415161718192021222324252627void dijkstra(int root)&amp;#123;    fill(d, d + MAXN, INF);&#x2F;&#x2F;d[]初试化    d[root] &#x3D; 0; &#x2F;&#x2F;原点距离为0    for (int i &#x3D; 0; i !&#x3D; n; ++i)&amp;#123;        int u &#x3D; -">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-30T19:39:57.000Z">
-<meta property="article:modified_time" content="2020-05-01T06:16:05.957Z">
+<meta property="article:published_time" content="2020-05-04T10:13:53.000Z">
+<meta property="article:modified_time" content="2020-05-04T10:25:37.790Z">
 <meta property="article:author" content="lemon">
 <meta name="twitter:card" content="summary">
   
@@ -154,74 +154,31 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-PAT笔记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-图" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-       PAT笔记
+      图
     </h1>
   
 
         
-        <a href="/2020/05/01/PAT%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-04-30T19:39:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
+        <a href="/2020/05/04/%E5%9B%BE/" class="archive-article-date">
+  	<time datetime="2020-05-04T10:13:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><p>树的基本算法：</p>
-<p>遍历算法：前序，中序，后序，层序遍历；</p>
-<p>建树算法：中序后序建树，中序前序建树算法，平衡二叉树的建立等</p>
-<h2 id="PAT-AVL树模板"><a href="#PAT-AVL树模板" class="headerlink" title="PAT AVL树模板"></a>PAT AVL树模板</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span>    <span class="comment">//AVL树要记录树高，以便得到节点的平衡因子</span></span><br><span class="line">    <span class="keyword">int</span> val, <span class="built_in">height</span>;</span><br><span class="line">    node *left, *right;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function">node * <span class="title">newNode</span><span class="params">(<span class="keyword">int</span> val)</span></span>&#123; <span class="comment">//申请新节点</span></span><br><span class="line">    node * root = <span class="keyword">new</span> node;</span><br><span class="line">    root-&gt;<span class="built_in">height</span> = <span class="number">1</span>;</span><br><span class="line">    root-&gt;val = val;</span><br><span class="line">    root-&gt;left = root-&gt;right = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getHeight</span><span class="params">(node * root)</span></span>&#123; <span class="comment">//得到节点的高度</span></span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> root-&gt;<span class="built_in">height</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">updateHeight</span><span class="params">(node * root)</span></span>&#123; <span class="comment">//更新节点的高度</span></span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span>;</span><br><span class="line">    root-&gt;<span class="built_in">height</span> = <span class="built_in">max</span>(getHeight(root-&gt;left), getHeight(root-&gt;right)) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BalanceFactor</span><span class="params">(node * root)</span></span>&#123; <span class="comment">//得到平衡因子</span></span><br><span class="line">    <span class="keyword">return</span> getHeight(root-&gt;left) - getHeight(root-&gt;right);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">L</span><span class="params">(node* &amp;root)</span></span>&#123; <span class="comment">//左旋</span></span><br><span class="line">    node * temp = root-&gt;right;</span><br><span class="line">    root-&gt;right = temp-&gt;left;</span><br><span class="line">    temp-&gt;left = root;</span><br><span class="line">    updateHeight(root);</span><br><span class="line">    updateHeight(temp);</span><br><span class="line">    root = temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">R</span><span class="params">(node* &amp;root)</span></span>&#123; <span class="comment">//右旋</span></span><br><span class="line">    node * temp = root-&gt;left;</span><br><span class="line">    root-&gt;left = temp-&gt;right;</span><br><span class="line">    temp-&gt;right = root;</span><br><span class="line">    updateHeight(root);</span><br><span class="line">    updateHeight(temp);</span><br><span class="line">    root = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h6 id="AVL树的选择规则"><a href="#AVL树的选择规则" class="headerlink" title="AVL树的选择规则"></a>AVL树的选择规则</h6><table>
-<thead>
-<tr>
-<th>树型</th>
-<th>判定条件</th>
-<th>方法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>LL</td>
-<td>BF(root) = 2, BF(root-&gt;left) = 1</td>
-<td>R(root)</td>
-</tr>
-<tr>
-<td>LR</td>
-<td>BF(root) = 2, BF(root-&gt;left) = -1</td>
-<td>L(root-&gt;left), R(root)</td>
-</tr>
-<tr>
-<td>RR</td>
-<td>BF(root) = -2, BF(root-&gt;right) = -1</td>
-<td>L(root)</td>
-</tr>
-<tr>
-<td>RLL</td>
-<td>BF(root) = -2, BF(root-&gt;right) = 1</td>
-<td>R(root-&gt;right), L(root)</td>
-</tr>
-</tbody></table>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertAVL</span><span class="params">(node* &amp;root, <span class="keyword">int</span> v)</span></span>&#123; <span class="comment">//插入</span></span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">nullptr</span>)&#123;</span><br><span class="line">        root = newNode(v);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (v &lt; root-&gt;val)&#123;</span><br><span class="line">        insertAVL(root-&gt;left, v);</span><br><span class="line">        updateHeight(root);</span><br><span class="line">        <span class="keyword">if</span> (BalanceFactor(root) == <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (BalanceFactor(root-&gt;left) == <span class="number">1</span>) R(root);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (BalanceFactor(root-&gt;left) == <span class="number">-1</span>)&#123;</span><br><span class="line">                L(root-&gt;left);</span><br><span class="line">                R(root);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        insertAVL(root-&gt;right, v);</span><br><span class="line">        updateHeight(root);</span><br><span class="line">        <span class="keyword">if</span> (BalanceFactor(root) == <span class="number">-2</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (BalanceFactor(root-&gt;right) == <span class="number">-1</span>) L(root);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (BalanceFactor(root-&gt;right) == <span class="number">1</span>)&#123;</span><br><span class="line">                R(root-&gt;right);</span><br><span class="line">                L(root);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="LCA问题"><a href="#LCA问题" class="headerlink" title="LCA问题"></a>LCA问题</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span> <span class="comment">// 节点保存该节点的父亲，该节点高度</span></span><br><span class="line">    <span class="keyword">int</span> val, father, <span class="built_in">height</span>;</span><br><span class="line">    node(<span class="keyword">int</span> v = <span class="number">0</span>, <span class="keyword">int</span> f = <span class="number">-1</span>, <span class="keyword">int</span> h = <span class="number">0</span>) : val(v), father(f), <span class="built_in">height</span>(h) &#123;&#125;</span><br><span class="line">&#125;pre[MAXN];</span><br><span class="line"><span class="keyword">int</span> in[MAXN];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> root, <span class="keyword">int</span> father, <span class="keyword">int</span> left, <span class="keyword">int</span> right, <span class="keyword">int</span> <span class="built_in">height</span>)</span></span>&#123; <span class="comment">// 递归建树</span></span><br><span class="line">    <span class="keyword">if</span> (left &gt; right) <span class="keyword">return</span>;</span><br><span class="line">    pre[root] = node(pre[root].val, father, <span class="built_in">height</span>);</span><br><span class="line">    <span class="keyword">int</span> i = left;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= right &amp;&amp; in[i] != pre[root].val) ++i;</span><br><span class="line">    build(root + <span class="number">1</span>, root, left, i - <span class="number">1</span>, <span class="built_in">height</span> + <span class="number">1</span>);</span><br><span class="line">    build(root + <span class="number">1</span> + i - left, root, i + <span class="number">1</span>, right, <span class="built_in">height</span> + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h3 id="dijkstra算法"><a href="#dijkstra算法" class="headerlink" title="dijkstra算法"></a>dijkstra算法</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">(<span class="keyword">int</span> root)</span></span>&#123;</span><br><span class="line">    <span class="built_in">fill</span>(d, d + MAXN, INF);<span class="comment">//d[]初试化</span></span><br><span class="line">    d[root] = <span class="number">0</span>; <span class="comment">//原点距离为0</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i != n; ++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> u = <span class="number">-1</span>, MIN = INF;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j != n; ++j)&#123; <span class="comment">//找与原点最小距离的点</span></span><br><span class="line">            <span class="keyword">if</span> (vis[j] == <span class="literal">false</span> &amp;&amp; d[j] &lt; MIN)&#123;</span><br><span class="line">                MIN = d[j];</span><br><span class="line">                u = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (u == <span class="number">-1</span>) <span class="keyword">return</span>; <span class="comment">//图不连通，返回</span></span><br><span class="line">        vis[u] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j != n; ++j)&#123;</span><br><span class="line">            <span class="keyword">if</span> (vis[j] == <span class="literal">false</span> &amp;&amp; graph[u][j] != INF)&#123;</span><br><span class="line">                <span class="keyword">if</span> (d[u] + graph[u][j] &lt; d[j])&#123;</span><br><span class="line">                    d[j] = d[u] + graph[u][j];</span><br><span class="line">                    pre[j].<span class="built_in">clear</span>();</span><br><span class="line">                    pre[j].push_back(u);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (d[u] + graph[u][j] == d[j])&#123;</span><br><span class="line">                    pre[j].push_back(u);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<hr>
-<h2 id="树状数组"><a href="#树状数组" class="headerlink" title="树状数组"></a>树状数组</h2><p>树状数组是一个查询和修改复杂度都为log(n)的数据结构。主要用于数组的区间求和</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> lowbit = [](<span class="keyword">int</span> x) &#123;<span class="keyword">return</span> x &amp; (-x); &#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = x; i &lt; MAXN; i += lowbit(i))</span><br><span class="line">        c[i] += v;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getsum</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = x; i &gt;= <span class="number">1</span>; i -= lowbit(i))</span><br><span class="line">        sum += c[i];</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-<hr>
-<h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1>
       
 
       
@@ -300,7 +257,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/01/PAT%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/04/%E5%9B%BE/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -314,18 +271,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/04/%E5%9B%BE/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          图
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2020/05/01/PAT%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"> PAT笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
